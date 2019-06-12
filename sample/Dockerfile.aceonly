@@ -1,4 +1,10 @@
 FROM ace-only:latest
 
 COPY bars_aceonly /home/aceuser/bars
+
+COPY odbc/odbc_cli/clidriver /opt/ibm/db2/clidriver
+ENV DB2DSDRIVER_CFG_PATH /opt/ibm/db2/clidriver/cfg/db2dsdriver.cfg
+RUN sudo apt-get update
+RUN sudo apt-get install -y libxml2
+
 RUN ace_compile_bars.sh
