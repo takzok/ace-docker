@@ -3,7 +3,7 @@ FROM ace-only:latest
 COPY bars_aceonly /home/aceuser/bars
 
 COPY odbc/odbc_cli/clidriver /opt/ibm/db2/clidriver
-RUN ln -s /home/aceuser/initial-config/db2dsdriver/db2dsdriver.cfg /opt/ibm/db2/clidriver/cfg/db2dsdriver.cfg
+RUN sudo ln -s /home/aceuser/initial-config/db2dsdriver/db2dsdriver.cfg /opt/ibm/db2/clidriver/cfg/db2dsdriver.cfg
 ENV DB2DSDRIVER_CFG_PATH /opt/ibm/db2/clidriver/cfg/db2dsdriver.cfg
 RUN sudo apt-get update
 RUN sudo apt-get install -y libxml2
